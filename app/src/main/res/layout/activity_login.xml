@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login"
-    tools:context=".LoginActivity"
+    tools:context=".login.LoginActivity"
     android:padding="@dimen/activity_vertical_margin">
 
     <View
@@ -56,6 +56,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <EditText
+        android:inputType="textPassword"
         android:id="@+id/edt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

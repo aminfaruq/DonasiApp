@@ -1,5 +1,6 @@
 package id.co.maminfaruq.donasiapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import id.co.maminfaruq.donasiapp.login.LoginActivity;
 
 public class HalamanAwalActivity extends AppCompatActivity {
 
@@ -36,6 +38,7 @@ public class HalamanAwalActivity extends AppCompatActivity {
             case R.id.btn_signup:
                 break;
             case R.id.btn_login:
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
         }
     }
