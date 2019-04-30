@@ -11,6 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.maminfaruq.donasiapp.ui.login.LoginActivity;
+import id.co.maminfaruq.donasiapp.ui.register.RegisterActivity;
 
 public class HalamanAwalActivity extends AppCompatActivity {
 
