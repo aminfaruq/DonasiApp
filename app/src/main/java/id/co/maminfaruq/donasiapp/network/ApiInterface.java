@@ -6,11 +6,12 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-public interface ApiLoginInterface {
+public interface ApiInterface {
 
     @FormUrlEncoded
-    @POST("donasiApp/login_user.php")
-    Call<LoginResponse> loginUser (@Field("email") String email,
-                          @Field("pass") String pass
-                      );
+    @POST("donasi_app/login_user.php")
+    Call<LoginResponse> loginUser(
+            @Field("username") String email,
+            @Field("password") String pass
+    );
 }

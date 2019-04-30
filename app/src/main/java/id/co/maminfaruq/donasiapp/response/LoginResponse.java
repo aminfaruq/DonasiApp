@@ -37,13 +37,5 @@ public class LoginResponse{
 		return message;
 	}
 
-	@Override
- 	public String toString(){
-		return 
-			"LoginResponse{" + 
-			"result = '" + result + '\'' + 
-			",data = '" + data + '\'' + 
-			",message = '" + message + '\'' + 
-			"}";
-		}
+
 }

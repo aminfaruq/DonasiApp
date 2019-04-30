@@ -1,8 +1,11 @@
 package id.co.maminfaruq.donasiapp.response;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-public class Data{
+public class Data implements Parcelable {
 
 	@SerializedName("password")
 	private String password;
@@ -81,17 +84,45 @@ public class Data{
 		return username;
 	}
 
+
 	@Override
- 	public String toString(){
-		return 
-			"Data{" + 
-			"password = '" + password + '\'' + 
-			",id_user = '" + idUser + '\'' + 
-			",nama_user = '" + namaUser + '\'' + 
-			",jenkel = '" + jenkel + '\'' + 
-			",no_telp = '" + noTelp + '\'' + 
-			",email = '" + email + '\'' + 
-			",username = '" + username + '\'' + 
-			"}";
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.password);
+		dest.writeString(this.idUser);
+		dest.writeString(this.namaUser);
+		dest.writeString(this.jenkel);
+		dest.writeString(this.noTelp);
+		dest.writeString(this.email);
+		dest.writeString(this.username);
+	}
+
+	public Data() {
+	}
+
+	protected Data(Parcel in) {
+		this.password = in.readString();
+		this.idUser = in.readString();
+		this.namaUser = in.readString();
+		this.jenkel = in.readString();
+		this.noTelp = in.readString();
+		this.email = in.readString();
+		this.username = in.readString();
+	}
+
+	public static final Parcelable.Creator<Data> CREATOR = new Parcelable.Creator<Data>() {
+		@Override
+		public Data createFromParcel(Parcel source) {
+			return new Data(source);
 		}
+
+		@Override
+		public Data[] newArray(int size) {
+			return new Data[size];
+		}
+	};
 }

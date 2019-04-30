@@ -1,4 +1,4 @@
-package id.co.maminfaruq.donasiapp.login;
+package id.co.maminfaruq.donasiapp.ui.login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import es.dmoral.toasty.Toasty;
-import id.co.maminfaruq.donasiapp.HalamanAwalActivity;
 import id.co.maminfaruq.donasiapp.MainActivity;
 import id.co.maminfaruq.donasiapp.R;
 import id.co.maminfaruq.donasiapp.response.LoginResponse;
@@ -37,19 +36,19 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     @Override
-    public void showProggres() {
+    public void showProgress() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         progressDialog.show();
     }
 
     @Override
-    public void hideProggres() {
+    public void hideProgress() {
         progressDialog.dismiss();
     }
 
     @Override
-    public void onSukses(String msg, LoginResponse loginResponse) {
+    public void onSuccess(String msg, LoginResponse loginResponse) {
         Toasty.success(this,"Login Anda Berhasil", Toasty.LENGTH_SHORT).show();
         startActivity(new Intent(this, MainActivity.class));
         finish();
