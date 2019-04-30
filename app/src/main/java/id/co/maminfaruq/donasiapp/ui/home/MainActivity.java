@@ -9,13 +9,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.HashMap;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import id.co.maminfaruq.donasiapp.R;
+import id.co.maminfaruq.donasiapp.utils.SessionManager;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
+    @BindView(R.id.txt_nama)
+    TextView txtNama;
+    @BindView(R.id.txt_email)
+    TextView txtEmail;
+    @BindView(R.id.txt_alamat)
+    TextView txtAlamat;
+    @BindView(R.id.txt_jenis_kelamin)
+    TextView txtJenisKelamin;
     private TextView mTextMessage;
     private final MainPresenter presenter = new MainPresenter(this);
     private ProgressDialog progressDialog;
+    SessionManager sm;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -37,10 +51,24 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        sm = new SessionManager(MainActivity.this);
+
+        HashMap<String, String> map = sm.getDetailLogin();
+
+        txtNama.setText(map.get(sm.KEY_NAMA));
+        txtJenisKelamin.setText(map.get(sm.KEY_JK));
+        txtEmail.setText(map.get(sm.KEY_EMAIL));
+        txtAlamat.setText(map.get(sm.KEY_ALAMAT));
+        /*        imgFoto.setImageResource(Integer.parseInt(map.get(sm.KEY_FOTO)));*/
+
+        sm.checkLogin();
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

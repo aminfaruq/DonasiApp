@@ -2,6 +2,8 @@ package id.co.maminfaruq.donasiapp.ui.home;
 
 import android.content.Context;
 
+import java.util.HashMap;
+
 import id.co.maminfaruq.donasiapp.utils.SessionManager;
 
 public class MainPresenter implements MainContract.Presenter{
@@ -12,9 +14,12 @@ public class MainPresenter implements MainContract.Presenter{
         this.view = view;
     }
 
+
     @Override
     public void logoutSession(Context context) {
-        SessionManager sessionManager = new SessionManager(context);
-        sessionManager.logout();
+        SessionManager sm = new SessionManager(context);
+
+        HashMap<String, String> map = sm.getDetailLogin();
+        sm.checkLogin();
     }
 }

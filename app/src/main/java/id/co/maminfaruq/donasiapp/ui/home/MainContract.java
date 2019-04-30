@@ -7,6 +7,7 @@ public interface MainContract {
         void showProgress();
         void hideProgress();
 
+
     }
     interface Presenter {
         void logoutSession(Context context);
