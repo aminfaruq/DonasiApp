@@ -1,4 +1,4 @@
-package id.co.maminfaruq.donasiapp;
+package id.co.maminfaruq.donasiapp.ui.register;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
