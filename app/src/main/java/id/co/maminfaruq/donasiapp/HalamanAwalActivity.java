@@ -22,7 +22,7 @@ public class HalamanAwalActivity extends AppCompatActivity {
     TextView donasiku;
     @BindView(R.id.sharing_is_)
     TextView sharingIs;
-    @BindView(R.id.ellipse)
+    @BindView(R.id.lopelope)
     View ellipse;
 
     @Override
@@ -36,6 +36,7 @@ public class HalamanAwalActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_signup:
+                startActivity(new Intent(this, RegisterActivity.class));
                 break;
             case R.id.btn_login:
                 startActivity(new Intent(this, LoginActivity.class));
