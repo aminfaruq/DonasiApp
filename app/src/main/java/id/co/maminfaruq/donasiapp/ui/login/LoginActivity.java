@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import es.dmoral.toasty.Toasty;
-import id.co.maminfaruq.donasiapp.MainActivity;
+import id.co.maminfaruq.donasiapp.ui.home.MainActivity;
 import id.co.maminfaruq.donasiapp.R;
 import id.co.maminfaruq.donasiapp.response.LoginResponse;
 

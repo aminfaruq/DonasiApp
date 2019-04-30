@@ -1,5 +1,6 @@
-package id.co.maminfaruq.donasiapp;
+package id.co.maminfaruq.donasiapp.ui.home;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,9 +9,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import id.co.maminfaruq.donasiapp.R;
+
+public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     private TextView mTextMessage;
+    private final MainPresenter presenter = new MainPresenter(this);
+    private ProgressDialog progressDialog;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -43,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void showProgress() {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage(" Loading .. ");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
+    @Override
+    public void hideProgress() {
+        progressDialog.dismiss();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_logout, menu);
         return super.onCreateOptionsMenu(menu);
@@ -50,7 +68,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case R.id.logout:
+                presenter.logoutSession(this);
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
 
     }
 }

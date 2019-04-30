@@ -9,7 +9,7 @@ import retrofit2.http.POST;
 public interface ApiInterface {
 
     @FormUrlEncoded
-    @POST("donasi_app/login_user.php")
+    @POST("donasiApp/login_user.php")
     Call<LoginResponse> loginUser(
             @Field("username") String email,
             @Field("password") String pass

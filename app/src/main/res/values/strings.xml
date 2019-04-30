@@ -5,5 +5,6 @@
     <string name="title_notifications">Notifications</string>
     <string name="donasiku">DonasiKu</string>
     <string name="sharing_is_">Sharing is beautiful</string>
+    <string name="logout">logout</string>
 
 </resources>
