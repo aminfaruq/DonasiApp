@@ -8,7 +8,7 @@ public class ApiClient {
 
     public static Retrofit getClient() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.70.84/")
+                .baseUrl("http://192.168.1.232/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit;

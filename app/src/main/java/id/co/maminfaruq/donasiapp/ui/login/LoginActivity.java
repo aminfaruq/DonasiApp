@@ -13,7 +13,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import es.dmoral.toasty.Toasty;
-import id.co.maminfaruq.donasiapp.ui.home.MainActivity;
+import id.co.maminfaruq.donasiapp.PilihBahasaActivity;
+
 import id.co.maminfaruq.donasiapp.R;
 import id.co.maminfaruq.donasiapp.response.LoginResponse;
 
@@ -50,7 +51,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     @Override
     public void onSuccess(String msg, LoginResponse loginResponse) {
         Toasty.success(this,"Login Anda Berhasil", Toasty.LENGTH_SHORT).show();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, PilihBahasaActivity.class));
         finish();
     }
 

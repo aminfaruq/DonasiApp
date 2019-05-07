@@ -9,7 +9,7 @@ import id.co.maminfaruq.donasiapp.network.ApiInterface;
 import id.co.maminfaruq.donasiapp.response.Data;
 import id.co.maminfaruq.donasiapp.response.LoginResponse;
 import id.co.maminfaruq.donasiapp.ui.login.LoginContract;
-import id.co.maminfaruq.donasiapp.utils.SessionManager;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -18,14 +18,13 @@ public class LoginPresenter implements LoginContract.Presenter {
     private final LoginContract.View view;
     private ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
-    SessionManager sm ;
 
     public LoginPresenter(LoginContract.View view) {
         this.view = view;
     }
     @Override
     public void session(Context context) {
-        sm = new SessionManager(context);
+
     }
     @Override
     public void whenLogin(String email, String password) {
